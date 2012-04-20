@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/php-validator
 Tags: developer tool, php, compile, debug, test plugin
 Requires at least: 2.5
 Tested up to: 3.3
-Stable tag: 1.00
+Stable tag: 1.01
 
 PHP Validator Lite is a pseudo-compiler for PHP to help developers locate undefined functions and methods.
 
@@ -22,9 +22,9 @@ In my case, in one of the projects I was working on (Easy PayPal, soon to become
 
 == Upgrade Notice ==
 
-= 1.00 =
+= 1.01 =
 
-Initial release.
+Minor code changes.
 
 == Screenshots ==
 
@@ -44,4 +44,5 @@ This plugin works by scanning the PHP source file you specify for functions and 
 
 == Change Log ==
 
+* V1.01: Minor code changes. [April 20, 2012]
 * V1.00: Initial release. [April 3, 2012]

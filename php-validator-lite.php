@@ -3,7 +3,7 @@
 Plugin Name: PHP Validator Lite
 Plugin URI: http://www.thulasidas.com/plugins/php-validator
 Description: Pseudo-complier for PHP source code -- lets you detect undefined functions and methods. Access it in the Tools menu by clicking <a href="tools.php?page=php-validator/php-validator.php">Tools &rarr; PHP Validator Lite</a>.
-Version: 1.00
+Version: 1.01
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -168,8 +168,8 @@ if (!class_exists("phpValidator")) {
         }
       }
       $sourcePrompt = "List your php source filess here (comma separated).<br /><small>Giving multiple source files will make the line numbers meaningless.</small>" ;
-      $extraPrompt = "Enter extra include file(s), if any, (comma separated)<br><small>If you don't have any additional include files, you can leave it blank.</small>" ;
-      $includePrompt = "List additional include paths (comma separated).<br><small>If you don't have any include paths, you can enter '.' or leave it blank.</small>" ;
+      $extraPrompt = "<br />Enter extra include file(s), if any, (comma separated)<br><small>If you don't have any additional include files, you can leave it blank.</small>" ;
+      $includePrompt = "<br />List additional include paths (comma separated).<br><small>If you don't have any include paths, you can enter '.' or leave it blank.</small>" ;
 
       printf("<form name='form1' action='{$_SERVER['REQUEST_URI']}' method='post'>") ;
       printf("$sourcePrompt<br /><textarea rows='1' cols='95' name='sources' id='sources'>{$_POST['sources']}</textarea><br />") ;

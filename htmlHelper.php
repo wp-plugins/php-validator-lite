@@ -35,11 +35,11 @@ else {
       else $this->err = $err ;
     }
     function mkActionURL($a) {
-      $isPro = file_exists("pro/pro.php") ;
       $name = addslashes(htmlspecialchars($a['name'])) ;
+      $code = $a['code'] ;
       $help = sprintf( ' onmouseover="Tip(\'%s\', WIDTH, 300, TITLE, \'%s\', ' .
               'FIX, [this, 5, 2])" onmouseout="UnTip()" ', $a['help'], $name);
-      if (!$isPro) $ret = "'http://buy.thulasidas.com/$name' onclick='return confirm(\"$name is a paid package. Would you like to purchase the $name package (\${$a['price']})?\");' target='_blank' $help" ;
+      $ret = "'http://buy.thulasidas.com/$code' onclick='return confirm(\"$name is a paid package. Would you like to purchase the $name package (\${$a['price']})?\");' target='_blank' $help" ;
       return $ret ;
     }
     function showActions($actions, $button=false) {
@@ -60,10 +60,12 @@ else {
       $actions["pro"] = array(
         "name" => "PHP Validator Pro",
         "price" => "0.99",
+        "code" => "php-validator",
         "help" => "The Lite version of this plugin is fully functional. It will show undefined functions and methods as the Pro version does. The Pro version adds the ability show line numbers as well, which may make editing a bit easier.") ;
       $actions["standalone"] = array(
         "name" => "phpValidator",
         "price" => "1.45",
+        "code" => "phpValidator",
         "help" => "This plugin is also available as a stand-alone package. The Standalone version has all the features of the Pro version, but works as a stand-alone package, independent of WordPress. You can install it on your local development box and invoke it directly from a browser to <code>compile</code> your PHP code. It will list undefined functions and methods with line numbers.") ;
       $this->info = "Upgrade PHP Validator: " . $this->showActions($actions, true) ;
        printf("
