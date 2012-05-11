@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: PHP Validator Lite
+Plugin Name: PHP Validator
 Plugin URI: http://www.thulasidas.com/plugins/php-validator
-Description: Pseudo-complier for PHP source code -- lets you detect undefined functions and methods. Access it in the Tools menu by clicking <a href="tools.php?page=php-validator/php-validator.php">Tools &rarr; PHP Validator Lite</a>.
-Version: 1.01
+Description: Pseudo-complier for PHP source code -- lets you detect undefined functions and methods. Access it in the Tools menu by clicking <a href="tools.php?page=php-validator/php-validator.php">Tools &rarr; PHP Validator</a>.
+Version: 1.02
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -204,7 +204,7 @@ if (class_exists("phpValidator")) {
     }
     function phpValidator_admin_menu() {
       global $phpValidator ;
-      $page = add_submenu_page('tools.php','PHP Validator Lite', 'PHP Validator Lite',
+      $page = add_submenu_page('tools.php','PHP Validator', 'PHP Validator',
               "install_plugins", __FILE__, array(&$phpValidator, 'printAdminPage')) ;
       add_action('admin_print_styles-' . $page, 'phpValAdminStyles') ;
     }

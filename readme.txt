@@ -1,16 +1,16 @@
-=== PHP Validator Lite ===
+=== PHP Validator ===
 Contributors: manojtd
 Donate link: http://buy.thulasidas.com/php-validator
 Tags: developer tool, php, compile, debug, test plugin
 Requires at least: 2.5
 Tested up to: 3.3
-Stable tag: 1.01
+Stable tag: 1.02
 
-PHP Validator Lite is a pseudo-compiler for PHP to help developers locate undefined functions and methods.
+PHP Validator is a pseudo-compiler for PHP to help developers locate undefined functions and methods.
 
 == Description ==
 
-*PHP Validator Lite* is a developer tool. It scans the file you specify and determines whether you have undefined functions or methods.
+*PHP Validator* is a developer tool. It scans the file you specify and determines whether you have undefined functions or methods.
 
 Why not just run the PHP code, you say? Well, PHP is not a compiled language. It looks for functions during runtime. So if you have a segment of code not covered by your normal testing, and you have an undefined function in there, you will never know of the undefined function until it hits production when the particular conditions activating that particular code segment are met.
 
@@ -22,9 +22,9 @@ In my case, in one of the projects I was working on (Easy PayPal, soon to become
 
 == Upgrade Notice ==
 
-= 1.01 =
+= 1.02 =
 
-Minor code changes.
+Renaming the plugin to drop the word Lite.
 
 == Screenshots ==
 
@@ -44,5 +44,6 @@ This plugin works by scanning the PHP source file you specify for functions and 
 
 == Change Log ==
 
+* V1.02: Renaming the plugin to drop the word Lite. [May 12, 2012]
 * V1.01: Minor code changes. [April 20, 2012]
 * V1.00: Initial release. [April 3, 2012]
