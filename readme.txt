@@ -3,8 +3,8 @@ Contributors: manojtd
 Donate link: http://buy.thulasidas.com/php-validator
 Tags: developer tool, php, compile, debug, test plugin
 Requires at least: 2.5
-Tested up to: 3.3
-Stable tag: 1.02
+Tested up to: 3.7
+Stable tag: 1.10
 
 PHP Validator is a pseudo-compiler for PHP to help developers locate undefined functions and methods.
 
@@ -22,9 +22,9 @@ In my case, in one of the projects I was working on (Easy PayPal, soon to become
 
 == Upgrade Notice ==
 
-= 1.02 =
+= 1.10 =
 
-Renaming the plugin to drop the word Lite.
+Compatibility checks for WordPress V3.7.
 
 == Screenshots ==
 
@@ -44,6 +44,14 @@ This plugin works by scanning the PHP source file you specify for functions and 
 
 == Change Log ==
 
+* V1.10: Compatibility checks for WordPress V3.7. [Nov 11, 2013]
+* V1.03: Bug fixes (Fatal error: Call-time pass-by-reference has been removed). [Jan 28, 2013]
 * V1.02: Renaming the plugin to drop the word Lite. [May 12, 2012]
 * V1.01: Minor code changes. [April 20, 2012]
 * V1.00: Initial release. [April 3, 2012]
+
+
+
+
+
+
