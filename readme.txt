@@ -71,7 +71,7 @@ No. This is another debug option to list all the tokens found, and will generate
 
 == Change Log ==
 
-* V1.21: Minor refactoring changes. [Mar 24, 2014]
+* V1.21: Minor refactoring changes. [Mar 25, 2014]
 * V1.20: Compatibility checks for WordPress V3.8. Adding more help on admin page. [Dec 20, 2013]
 * V1.10: Compatibility checks for WordPress V3.7. [Nov 11, 2013]
 * V1.03: Bug fixes (Fatal error: Call-time pass-by-reference has been removed). [Jan 28, 2013]
