@@ -4,7 +4,7 @@
   Plugin Name: PHP Validator
   Plugin URI: http://www.thulasidas.com/plugins/php-validator
   Description: Pseudo-complier for PHP source code -- lets you detect undefined functions and methods. Access it in the Tools menu by clicking <a href="tools.php?page=php-validator/php-validator.php">Tools &rarr; PHP Validator</a>.
-  Version: 1.20
+  Version: 1.21
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */
@@ -27,17 +27,17 @@
  */
 
 ini_set('error_reporting', E_ERROR);
-if (class_exists("phpValidator")) {
+if (class_exists("PhpValidator")) {
   // The Lite version is probably installed. Ask the user to deactivate it.
   die(__("<strong><em>PHP Validator Pro</em></strong> is active.<br />Please use the Pro version, or deactivate it before activating <strong><em>PHP Validator Lite</em></strong>.", "easy-adsenser"));
 }
 else {
 
-  class phpValidator {
+  class PhpValidator {
 
     var $dirName, $URL;
 
-    function phpValidator() { //constructor
+    function PhpValidator() { //constructor
       $this->dirName = dirname(__FILE__);
       $baseName = basename($this->dirName);
       $this->URL = get_option('siteurl') . '/' . PLUGINDIR . '/' . $baseName;
@@ -209,7 +209,7 @@ else {
       $extraPrompt = "<br />Enter extra include file(s), if any, (comma separated)<br><small>If you don't have any additional include files, you can leave it blank.</small>";
       $includePrompt = "<br />List additional include paths (comma separated).<br><small>If you don't have any include paths, you can enter '.' or leave it blank.</small>";
 
-      printf("<form name='form1' action='{$_SERVER['REQUEST_URI']}' method='post'>");
+      printf("<form name='form1' action='#' method='post'>");
       printf("$sourcePrompt<br /><textarea rows='1' cols='95' name='sources' id='sources'>{$_POST['sources']}</textarea><br />");
       printf("$extraPrompt<br /><textarea rows='1' cols='95' name='extras' id='extras'>{$_POST['extras']}</textarea><br />");
       printf("$includePrompt<br /><textarea rows='1' cols='95' name='includes' id='includes'>{$_POST['includes']}</textarea><br /><br \>");
@@ -242,7 +242,6 @@ else {
       }
       printf("<input type='checkbox' $checked name='showTokens'> &nbsp; Show tokens. <br /><span style='width:30px;display:inline-block'></span><small>[Will be very verbose.]</small><br \>");
       printf("\n<div class='submit'><input type='submit' name='save' class='button'></div><br /></div></form>");
-      printf("</form>");
       $html->ezppFooter();
     }
 
@@ -250,8 +249,8 @@ else {
 
   // End Class phpValidator
 }
-if (class_exists("phpValidator")) {
-  $phpValidator = new phpValidator();
+if (class_exists("PhpValidator")) {
+  $phpValidator = new PhpValidator();
   if (isset($phpValidator)) {
     add_action('admin_init', 'phpValidator_admin_init');
     add_action('admin_menu', 'phpValidator_admin_menu');
