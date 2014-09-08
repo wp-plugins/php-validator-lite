@@ -4,7 +4,7 @@
   Plugin Name: PHP Validator
   Plugin URI: http://www.thulasidas.com/plugins/php-validator
   Description: Pseudo-complier for PHP source code -- lets you detect undefined functions and methods. Access it in the Tools menu by clicking <a href="tools.php?page=php-validator/php-validator.php">Tools &rarr; PHP Validator</a>.
-  Version: 1.21
+  Version: 1.30
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */
@@ -27,9 +27,8 @@
  */
 
 ini_set('error_reporting', E_ERROR);
-if (class_exists("PhpValidator")) {
-  // The Lite version is probably installed. Ask the user to deactivate it.
-  die(__("<strong><em>PHP Validator Pro</em></strong> is active.<br />Please use the Pro version, or deactivate it before activating <strong><em>PHP Validator Lite</em></strong>.", "easy-adsenser"));
+if (class_exists("PhpValidatorPro")) {
+  die("<b>PHP Validator</b>: Please deactivate the Pro version if you still want to use the Lite version!");
 }
 else {
 
@@ -61,7 +60,7 @@ else {
     function printAdminPage() {
       include($this->dirName . '/htmlHelper.php');
 
-      $html = new htmlHelper();
+      $html = new HtmlHelper();
       $myTools = "<a href='http://buy.thulasidas.com'>Tools and Plugins for PHP, WordPress and Mac</a>";
       if (empty($_POST)) {
         $html->ezppHeader("Validate PHP files", $myTools, $this->URL);
@@ -82,7 +81,12 @@ else {
         if (!$html->inError()) {
           $source = '';
           foreach ($sources as $file) {
-            $source .= file_get_contents($this->dirName . '/' . trim($file));
+            if ($file[0] == '/') {
+              $source .= file_get_contents(trim($file));
+            }
+            else {
+              $source .= file_get_contents($this->dirName . '/' . trim($file));
+            }
           }
           $tokens = token_get_all($source);
           $tokens = array_filter($tokens, array("phpValidator", "validToken"));

@@ -6,7 +6,7 @@ if (class_exists("htmlHelper")) {
 }
 else {
 
-  class htmlHelper {
+  class HtmlHelper {
 
     var $info, $warn, $err;
 
@@ -35,7 +35,7 @@ else {
 
     }
 
-    function htmlHelper($info, $warn, $err) {
+    function HtmlHelper($info, $warn, $err) {
       if (version_compare(PHP_VERSION, "5.0.0", "<")) {
         $this->__construct($info, $warn, $err);
         register_shutdown_function(array($this, "__destruct"));
