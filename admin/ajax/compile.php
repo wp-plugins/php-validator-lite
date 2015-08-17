@@ -24,7 +24,6 @@ function fatal_handler() {
   }
 }
 
-
 require_once 'Tokenizer.php';
 
 $handlers = array("methods", "functions", "includes", "classes", "defined");
@@ -151,11 +150,13 @@ function validate($sources) {
       $testPHP .= "else {\n\t";
       foreach ($classes as $cls) {
         $c = $cls['text'];
-        $testPHP .= "if (method_exists('$c', '$m')) {\n\t \$methodExists = true; \n}\n";
+        if (validClass($c)) {
+          $testPHP .= "if (method_exists('$c', '$m')) {\n\t \$methodExists = true; \n}\n";
+        }
       }
       $testPHP .= "if (!\$methodExists) {\n\techo 'Error: Method not found:&emsp; $cm_ $l<br>';\n}\n";
       if (!empty(EZ::$options['show_defined'])) {
-        $testPHP .= "else {\n\t  echo 'Warning: Method matched:&emsp; $cm_ $l &emsp; [Possibley found in class <code>$c</code>]<br>';\n }\n";
+        $testPHP .= "else {\n\t  echo 'Warning: Method matched:&emsp; $cm_ $l &emsp; [Possibly found in class <code>$c</code>]<br>';\n }\n";
       }
       $testPHP .= "\n}\n";
     }
@@ -391,4 +392,8 @@ function killDupes($handler) {
     }
   }
   return $ret;
+}
+
+function validClass($className) {
+  return preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $className);
 }

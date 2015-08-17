@@ -109,6 +109,9 @@ $modes['eval_includes'] = array('name' => 'Execute the Files',
     });
   });
   function ajaxUpload(_file) {
+    showSuccess("&emsp;<img src='img/loading.gif' alt='loading' />&emsp;Working... Please wait!");
+    hideWarning();
+    hideError();
     if (!_file) {
       flashWarning("No file uploaded.");
       return;
@@ -116,8 +119,6 @@ $modes['eval_includes'] = array('name' => 'Execute the Files',
     var data = new FormData();
     data.append('file', _file);
     data.append('action', 'file');
-    var td = $("#fileinput").closest('td');
-    $(td).html('<span class="center red" style="font-size:1.1em;width:100%"><i class="fa fa-spinner fa-spin"></i> Working! Please wait...</span>');
     $.ajax({
       url: 'ajax/compile.php',
       type: 'POST',
@@ -141,7 +142,7 @@ $modes['eval_includes'] = array('name' => 'Execute the Files',
       }
     });
   }
-  $("#fileinput").on('change', function (event) {
+  $('body').on('change', "#fileinput", function (e) {
     file = event.target.files[0];
     if (file) {
       bootbox.confirm("Are you sure you want to upload <code>" + file.name + "</code> and validate it?", function (result) {

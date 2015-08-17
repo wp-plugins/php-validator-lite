@@ -32,7 +32,7 @@ class OptionTable extends DbTable {
     $optionsDB = $db->getMetaData($this->table);
     foreach ($options as $pk => $o) {
       $options[$pk]['pk'] = $pk;
-      if (!empty($optionsDB[$pk])) {
+      if (isset($optionsDB[$pk])) {
         $options[$pk]['value'] = $optionsDB[$pk];
       }
     }
