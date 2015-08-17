@@ -4,7 +4,7 @@
   Plugin Name: PHP Pseudo Compiler
   Plugin URI: http://www.thulasidas.com/packages/phpvalidator
   Description: A PHP pseaudo complier, with a powerful and modern admin interface.
-  Version: 2.00
+  Version: 2.01
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */

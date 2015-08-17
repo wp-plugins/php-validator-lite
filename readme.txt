@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/php-validator
 Tags: developer tool, php, compile, debug, test plugin
 Requires at least: 2.5
 Tested up to: 4.3
-Stable tag: 2.00
+Stable tag: 2.01
 
 PHP Pseudo Compiler is a validation tool for PHP to help developers (and quality checker for end users) to locate undefined functions and methods.
 
@@ -34,7 +34,7 @@ In addition to the fully functional Lite version, *PHP Pseudo Compiler*  also ha
 
 == Upgrade Notice ==
 
-Major rewrite of the whole code base using the twitter bootstrap framework. Compatibility with WordPress V4.3.
+Bug fix in the AJAX error handler.
 
 == Screenshots ==
 
@@ -96,6 +96,7 @@ The uploaded files are parsed and examined statically by default. If you would l
 
 == Change Log ==
 
+* V2.01: Bug fix in the AJAX error handler. [Aug 17, 2015]
 * V2.00: Major rewrite of the whole code base using the twitter bootstrap framework. Compatibility with WordPress V4.3. [Aug 15, 2015]
 * V1.30: Minor fixes. Compatibility with WordPress V4.0. [Sep 8, 2014]
 * V1.21: Minor refactoring changes. [Mar 25, 2014]

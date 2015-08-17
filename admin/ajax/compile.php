@@ -12,13 +12,15 @@ register_shutdown_function("fatal_handler");
 function fatal_handler() {
   $error = error_get_last();
   if ($error !== NULL) {  // clear processing flags
-    $message = $error['message'];
+    if (!empty($error['message'])) {
+      $message = $error['message'];
+    }
+    else {
+      $message = "Unknown Error: Probably a PHP execution time out.";
+    }
+    http_response_code(400);
+    die($message);
   }
-  else {
-    $message = "Unknown Error: Probably a PHP execution time out.";
-  }
-  http_response_code(400);
-  die($message);
 }
 
 
