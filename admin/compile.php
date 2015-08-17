@@ -11,7 +11,7 @@
 </div>
 
 <?php
-insertAlerts();
+insertAlerts(12);
 openBox("PHP Pseudo Compiler", "play", 12);
 $pwd = realpath("../..");
 $modes = array();

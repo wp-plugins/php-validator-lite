@@ -12,8 +12,9 @@ register_shutdown_function("fatal_handler");
 function fatal_handler() {
   $error = error_get_last();
   if ($error !== NULL) {  // clear processing flags
-    if (!empty($error['message'])) {
-      $message = $error['message'];
+    extract($error);
+    if (!empty($message)) {
+      $message = "File: $file Line: $line: Message: $message";
     }
     else {
       $message = "Unknown Error: Probably a PHP execution time out.";
@@ -26,6 +27,8 @@ function fatal_handler() {
 
 require_once 'Tokenizer.php';
 
+$handlers = array("methods", "functions", "includes", "classes", "defined");
+$defHandlers = array("functions", "methods", "classes");
 $success = $warning = $error = "";
 $action = $_REQUEST['action'];
 ob_start();
@@ -71,9 +74,12 @@ echo json_encode(array('success' => $success, 'warning' => $warning, 'error' => 
 exit();
 
 function validate($sources) {
-  $handlers = array("methods", "functions", "includes", "classes", "defined");
+  global $handlers, $defHandlers;
   foreach ($handlers as $h) {
     $$h = array();
+  }
+  foreach ($defHandlers as $h) {
+    $defined[$h] = array();
   }
   $includePaths = array();
   foreach ($sources as $file) {
@@ -190,9 +196,12 @@ function compile($file) {
     die($msg);
   }
 
-  $handlers = array("methods", "functions", "includes", "classes", "defined");
+  global $handlers, $defHandlers;
   foreach ($handlers as $h) {
     $$h = array();
+  }
+  foreach ($defHandlers as $h) {
+    $defined[$h] = array();
   }
 
   $currentClass = false;
