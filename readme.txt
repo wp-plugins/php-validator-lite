@@ -1,26 +1,28 @@
 === PHP Pseudo Compiler ===
 Contributors: manojtd
 Donate link: http://buy.thulasidas.com/php-validator
-Tags: developer tool, php, compile, debug, test plugin
-Requires at least: 2.5
+Tags: compiler, developer tool, debug, plugin checker, phc, hhvm, phalanger, hip hop
+Requires at least: 4.2
 Tested up to: 4.3
-Stable tag: 2.03
+Stable tag: 2.04
+License: GPL2 or later
 
-PHP Pseudo Compiler is a validation tool for PHP to help developers (and quality checker for end users) to locate undefined functions and methods.
+PHP Pseudo Compiler is a validation tool for PHP developers (and a quality checker for end users) to locate undefined functions and methods.
 
 == Description ==
 
 *PHP Pseudo Compiler* is a developer tool. It scans the file you specify and determines whether you have undefined functions or methods.
 
-Why not just run the PHP code, you say? Well, PHP is not a compiled language. It looks for functions during runtime. So if you have a segment of code not covered by your normal testing, and you have an undefined function in there, you will never know of the undefined function until it hits production when the particular conditions activating that particular code segment are met.
+Why not just run the PHP code, you say? Well, PHP is not a compiled language. It looks for functions during runtime. So if you have a segment of code not covered by your normal testing, and you have an undefined function in there, you will never know of the undefined function until it hits production when the particular conditions activating that particular code segment are met. This tool will prove especially useful during large scale refactoring.
+
 
 = Features =
 
-1. Modern Admin Interface: PHP Validator sports a modern and beautiful admin interface based on the twitter bootstrap framework.
+1. Modern Admin Interface: PHP Pseudo Compiler sports a modern and beautiful admin interface based on the twitter bootstrap framework.
 2. Admin Interface Tour: A slick tour will take you around the admin page and familiarize you with its features.
-3. Generous Help: Whenever you need help, the information and hint is only a click away in PHP Validator. (In fact, it is only a mouseover away.)
+3. Generous Help: Whenever you need help, the information and hint is only a click away in PHP Pseudo Compiler. (In fact, it is only a mouseover away.)
 Robust Security: Unbreakable authentication (using hash and salt), impervious to SQL injection etc.
-4. WordPress Integration: PHP Validator comes with built-in WordPress integration. It works as a WordPress plugin if uploaded to the wp-content/plugins folder of your blog. What's more, you can switch to the standalone mode from the WordPress plugin admin page of this application, while still using the WordPress authentication mechanism and database.
+4. WordPress Integration: PHP Pseudo Compiler comes with built-in WordPress integration. It works as a WordPress plugin if uploaded to the wp-content/plugins folder of your blog. What's more, you can switch to the standalone mode from the WordPress plugin admin page of this application, while still using the WordPress authentication mechanism and database.
 
 = Pro Version =
 
@@ -34,7 +36,7 @@ In addition to the fully functional Lite version, *PHP Pseudo Compiler*  also ha
 
 == Upgrade Notice ==
 
-Making the compiler more robust.
+Documentation and refactoring changes only. 
 
 == Screenshots ==
 
@@ -75,11 +77,11 @@ If you would like to temporarily switch to the standalone mode of the plugin, cl
 
 = What do I enter in "List of Files"? =
 
-You enter the full path names of the files you would like to validate. Note that *PHP Pseudo Compiler* runs on a server, and the files need to be accessible by your web server. Please specify the files relative to the installation directory, or by typing in their full path names. You can enter multiple file names separated by commas.
+You enter the path names of the files you would like to validate. Note that *PHP Pseudo Compiler* runs on your server, and the files need to be accessible by your web server. Please specify the files relative to your `wp-content/plugins` directory, or by typing in their full path names. You can enter multiple file names separated by commas.
 
 = What do I enter in "Folder Location"? =
 
-*PHP Pseudo Compiler* can recursively load an entire folder on your server to validate the files therein. Specify a path relative to the current location (as shown in the help bubble), or as an absolute path.
+*PHP Pseudo Compiler* can recursively load an entire folder on your server to validate the files therein. Specify a path relative to your `wp-content/plugins`  location (as shown in the help bubble), or as an absolute path.
 
 = What about "Upload Application"? =
 
@@ -96,6 +98,7 @@ The uploaded files are parsed and examined statically by default. If you would l
 
 == Change Log ==
 
+* V2.04: Documentation and refactoring changes only. [Aug 18, 2015]
 * V2.03: Making the compiler more robust. [Aug 17, 2015]
 * V2.02: Updating a screenshot, further minor fixes. [Aug 17, 2015]
 * V2.01: Bug fix in the AJAX error handler. [Aug 17, 2015]
