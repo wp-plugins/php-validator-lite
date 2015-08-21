@@ -2,7 +2,7 @@
 <div class="col-md-3 col-sm-6 goPro">
   <a data-toggle="tooltip" title="Get the Pro version for only $4.95. Tons of extra features. Instant download." class="well top-block goPro" href="http://buy.thulasidas.com/php-validator">
     <i class="glyphicon glyphicon-shopping-cart red"></i>
-    <div>Get PHP Validator Pro</div>
+    <div>Get PHP Pseudo Compiler Pro</div>
     <div>$4.95. Instant Download</div>
   </a>
 </div>

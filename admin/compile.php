@@ -31,7 +31,7 @@ $modes['file'] = array('name' => 'Upload Application',
     'validator' => 'notNull');
 
 if (function_exists('get_plugins')) {
-  $allPlugins = get_plugins();
+  $allPlugins = get_plugins() + get_plugins('/../mu-plugins/');
   $plugins = array();
   foreach ($allPlugins as $slug => $p) {
     $pruned = dirname($slug);
@@ -76,9 +76,9 @@ $modes['eval_includes'] = array('name' => 'Execute the Files',
         showSuccess("&emsp;<img src='img/loading.gif' alt='loading' />&emsp;Loading... Please wait!");
         hideWarning();
         hideError();
-        var evalIncludes = '';
-        if ($("#eval_includes").hasClass('btn-success')) {
-          evalIncludes = 1;
+        var evalIncludes = 1;
+        if ($("#eval_includes").hasClass('btn-danger')) {
+          evalIncludes = '';
         }
         $.ajax({
           url: 'ajax/compile.php',

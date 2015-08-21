@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `{prefix}administrator` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
-CREATE TABLE `{prefix}options_meta` (
+CREATE TABLE IF NOT EXISTS `{prefix}options_meta` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL UNIQUE default '',
   `value` text NOT NULL,

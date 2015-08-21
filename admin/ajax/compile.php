@@ -62,7 +62,12 @@ switch ($action) {
     die($error);
 }
 $output = validate($sources);
-$success = grep('Success: ', $output);
+if (!empty(EZ::$options['show_defined'])) {
+  $success = grep('Success: ', $output);
+}
+else {
+  $success = "Compilate completed!";
+}
 $warning = grep('Warning: ', $output);
 $error = grep('Error: ', $output);
 
@@ -93,14 +98,8 @@ function validate($sources) {
     }
   }
   $testPHP = "";
-  $testPHP .= "set_include_path(get_include_path()";
-  foreach ($includePaths as $i) {
-    $iPath = trim($i);
-    $testPHP .= " . PATH_SEPARATOR . '$iPath'";
-  }
-  $testPHP .= "); \n";
   $output = "";
-  if (EZ::$options['kill_dupes']) {
+  if (!empty(EZ::$options['kill_dupes'])) {
     $functions = killDupes($functions);
     $methods = killDupes($methods);
   }
@@ -147,22 +146,28 @@ function validate($sources) {
       if (!empty(EZ::$options['show_defined'])) {
         $testPHP .= "if (\$methodExists) {\n\t  echo 'Success: Method found:&emsp; $cm_ $l &emsp; [Found in class <code>$c</code>]<br>';\n }\n";
       }
-      $testPHP .= "else {\n\t";
-      foreach ($classes as $cls) {
-        $c = $cls['text'];
-        if (validClass($c)) {
-          $testPHP .= "if (method_exists('$c', '$m')) {\n\t \$methodExists = true; \n}\n";
+      if (!isVar($c) && !isClass($c)) {
+        $output .= "Warning: Method undetectable:&emsp; $cm_ $l &emsp; [Class does not look right!]<br>";
+      }
+      else {
+        $testPHP .= "else {\n\t";
+        foreach ($classes as $cls) {
+          $c = $cls['text'];
+          if (isClass($c)) {
+            $testPHP .= "if (method_exists('$c', '$m')) {\n\t \$methodExists = true; \n}\n";
+          }
         }
+        $testPHP .= "if (!\$methodExists) {\n\techo 'Error: Method not found:&emsp; $cm_ $l<br>';\n}\n";
+        if (!empty(EZ::$options['show_defined'])) {
+          $testPHP .= "else {\n\t  echo 'Warning: Method matched:&emsp; $cm_ $l &emsp; [Possibly found in class <code>$c</code>]<br>';\n }\n";
+        }
+        $testPHP .= "\n}\n";
       }
-      $testPHP .= "if (!\$methodExists) {\n\techo 'Error: Method not found:&emsp; $cm_ $l<br>';\n}\n";
-      if (!empty(EZ::$options['show_defined'])) {
-        $testPHP .= "else {\n\t  echo 'Warning: Method matched:&emsp; $cm_ $l &emsp; [Possibly found in class <code>$c</code>]<br>';\n }\n";
-      }
-      $testPHP .= "\n}\n";
     }
   }
   if (!empty(EZ::$options['show_source'])) {
-    $output .= "Warning: The auto-generated code is: <pre>" . htmlentities($testPHP) . "</pre>";
+    $msg = "Warning: The auto-generated code is: <pre>" . htmlentities($testPHP) . "</pre>";
+    $output .= $msg;
   }
   if (!empty(EZ::$options['show_tokens'])) {
     foreach ($handlers as $h) {
@@ -394,6 +399,10 @@ function killDupes($handler) {
   return $ret;
 }
 
-function validClass($className) {
+function isClass($className) {
   return preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $className);
+}
+
+function isVar($var) {
+  return preg_match('/\$([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)/', $var);
 }

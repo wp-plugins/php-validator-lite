@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/php-validator
 Tags: compiler, developer tool, debug, plugin checker, phc, hhvm, phalanger, hip hop
 Requires at least: 4.2
 Tested up to: 4.3
-Stable tag: 2.04
+Stable tag: 2.10
 License: GPL2 or later
 
 PHP Pseudo Compiler is a validation tool for PHP developers (and a quality checker for end users) to locate undefined functions and methods.
@@ -15,6 +15,9 @@ PHP Pseudo Compiler is a validation tool for PHP developers (and a quality check
 
 Why not just run the PHP code, you say? Well, PHP is not a compiled language. It looks for functions during runtime. So if you have a segment of code not covered by your normal testing, and you have an undefined function in there, you will never know of the undefined function until it hits production when the particular conditions activating that particular code segment are met. This tool will prove especially useful during large scale refactoring.
 
+= Live Demo =
+
+**PHP Pseudo Compiler has a beautifully designed admin interface, which is feature-rich, user-friendly and functional. Please visit this fully operational [live demo site](http://demo.thulasidas.com/php-validator "Play with PHP Pseudo Compiler Pro") to see it in action, (and to check your code without installing it locally).**
 
 = Features =
 
@@ -32,11 +35,11 @@ In addition to the fully functional Lite version, *PHP Pseudo Compiler*  also ha
 2. *WordPress Support*: The *Pro* version can load and check any plugin on your server, and recognizes WordPress functions.
 3. *Skinnable Admin Interface*: In the *Pro* version, you can select the color schemes of your admin pages from nine different skins.
 4. *Advanced Options*: The Pro version lets you configure advanced options like suppressing duplicates, displaying all detected tokens, ability to do dynamic code analysis etc.
-5. *Execution Time*: Ability to specify the maximum execution time for large compilation jobs.
+5. *Execution Parameters*: Ability to specify the maximum execution time and memory size for large compilation jobs.
 
 == Upgrade Notice ==
 
-Documentation and refactoring changes only. 
+Releasing a live demo site.
 
 == Screenshots ==
 
@@ -93,11 +96,13 @@ Similar to the file upload method, you can validate any plugin installed on your
 
 = What is the purpose of the "Execute the Files" option? =
 
-The uploaded files are parsed and examined statically by default. If you would like to do dynamic analysis by executing the files, please check here. Please note that executing uploaded files may have side effects, and it may be a security hole as well. For that reason, this Pro option self-disables after each execution.
+The uploaded files are parsed and examined statically by default. If you would like to do dynamic analysis by executing the files, please check here. Please note that executing uploaded files may have side effects, and it may be a security hole as well. For that reason, this Pro option self-disables after each execution. Dynamic analysis is of limited value when analyzing object-oriented projects because of the inherent statefulness of the code.
 
 
 == Change Log ==
 
+* V2.10: Releasing a live demo site. [Aug 21, 2015]
+* V2.05: Adding warnings about undetectable methods. [Aug 20, 2015]
 * V2.04: Documentation and refactoring changes only. [Aug 18, 2015]
 * V2.03: Making the compiler more robust. [Aug 17, 2015]
 * V2.02: Updating a screenshot, further minor fixes. [Aug 17, 2015]

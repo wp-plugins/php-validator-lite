@@ -15,7 +15,7 @@ $cfgDir = dirname(__DIR__);
     <li>Select a WordPress plugin installed on your blog (<a href="http://buy.thulasidas.com/php-validator" title="Get PHP Pseudo Compiler Pro for $4.95" class="goPro">Pro version</a>).</li>
   </ol>
   <p>
-    Note that the files and folders need to be on the server that is running this application, and the paths should be relative to the pareth location of this application (<code><?php echo realpath("../.."); ?></code>). You can also list absolute path names. When you upload a zipped package, it will end up on your server on a temporary random location (and is therefore harmless).
+    Note that the files and folders need to be on the server that is running this application, and the paths should be relative to the parent location of this application (<code><?php echo realpath("../.."); ?></code>). You can also list absolute path names. When you upload a zipped package, it will end up on your server on a temporary random location (and is therefore harmless).
   </p>
 
   <h4>Context-Aware Help</h4>
@@ -24,7 +24,7 @@ $cfgDir = dirname(__DIR__);
 <div class="col-lg-4 col-sm-12">
   <h4>Play with a Demo</h4>
   <ul>
-    <li>If you would like to play with the admin interface without messing up your installation, <a href="http://demo.thulasidas.com/php-validator" title='Visit the demo site to play with the admin interface' data-toggle='tooltip' target="_blank">please visit PHP Validator demo site</a>.</li>
+    <li>If you would like to play with the admin interface without messing up your installation, <a href="http://demo.thulasidas.com/php-validator" title='Visit the demo site to play with the admin interface' data-toggle='tooltip' target="_blank">please visit PHP Pseudo Compiler demo site</a>.</li>
   </ul>
   <div id='supportChannels'>
     <h4>Need Support?</h4>
@@ -115,7 +115,7 @@ if (isset($_REQUEST['inframe'])) {
         element: "#goPro",
         placement: "right",
         title: "Upgrade Your App to Pro",
-        content: "To unlock the full potential of this app, you may want to purchase the Pro version. You will get an link to download it instantly. It costs only $20.95 and adds tons of features. These Pro features are highlighted by a red icon on this menu bar."
+        content: "To unlock the full potential of this app, you may want to purchase the Pro version. You will get an link to download it instantly. It costs only $15.95 and adds tons of features. These Pro features are highlighted by a red icon on this menu bar."
       });
       tour.addStep({// The first on ul unroll is ignored. Bug in BootstrapTour?
         element: "#options",
