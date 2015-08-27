@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/php-validator
 Tags: compiler, developer tool, debug, plugin checker, phc, hhvm, phalanger, hip hop
 Requires at least: 4.2
 Tested up to: 4.3
-Stable tag: 2.10
+Stable tag: 2.11
 License: GPL2 or later
 
 PHP Pseudo Compiler is a validation tool for PHP developers (and a quality checker for end users) to locate undefined functions and methods.
@@ -39,7 +39,7 @@ In addition to the fully functional Lite version, *PHP Pseudo Compiler*  also ha
 
 == Upgrade Notice ==
 
-Releasing a live demo site.
+Refactoring changes, code clean up and fixing some W3 validation errors.
 
 == Screenshots ==
 
@@ -101,6 +101,7 @@ The uploaded files are parsed and examined statically by default. If you would l
 
 == Change Log ==
 
+* V2.11: Refactoring changes, code clean up and fixing some W3 validation errors. [Aug 23, 2015]
 * V2.10: Releasing a live demo site. [Aug 21, 2015]
 * V2.05: Adding warnings about undetectable methods. [Aug 20, 2015]
 * V2.04: Documentation and refactoring changes only. [Aug 18, 2015]

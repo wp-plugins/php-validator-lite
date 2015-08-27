@@ -1,5 +1,5 @@
 <?php
-if (!empty($no_visible_elements)) {
+if (!menuHidden()) {
   ?>
   <a href="#" class="btn btn-warning goPro" style="float:right" data-toggle="tooltip" title="Get the Pro Version Now for $15.95!"> <i class="glyphicon glyphicon-shopping-cart"></i> Buy PHP Pseudo Compiler Pro Now!</a>
   <?php
@@ -9,7 +9,7 @@ if (!empty($no_visible_elements)) {
   <small>A Pseudo Compiler for PHP.</small>
 </h2>
 <?php
-if (empty($no_visible_elements)) {
+if (menuHidden()) {
   EZ::showService();
 }
 ?>

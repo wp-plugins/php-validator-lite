@@ -26,7 +26,9 @@ if (!class_exists("EZ")) {
 }
 
 EZ::$slug = 'php-validator';
+EZ::$wpslug = 'php-validator-lite';
 EZ::$class = "PhpValidator";
+EZ::$name = "PHP Pseudo Compiler";
 EZ::$isInWP = isset($_REQUEST['wp']);
 EZ::$isUpdating = isset($_REQUEST['update']);
 EZ::$isPro = file_exists('options-advanced.php');

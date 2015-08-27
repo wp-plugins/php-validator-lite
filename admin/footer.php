@@ -1,11 +1,11 @@
-<?php if (empty($no_visible_elements)) { ?>
+<?php if (menuHidden()) { ?>
   <!-- content ends -->
   </div><!--/#content.col-md-0-->
 <?php } ?>
 </div><!--/fluid-row-->
 <hr>
 
-<?php if (empty($no_visible_elements)) { ?>
+<?php if (menuHidden()) { ?>
   <footer class="row">
     <p class="col-md-9 col-sm-9 col-xs-12 copyright">&copy; <a href="http://www.thulasidas.com" target="_blank">Manoj Thulasidas</a> 2013 - <?php echo date('Y') ?></p>
 

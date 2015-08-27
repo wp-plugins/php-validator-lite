@@ -25,6 +25,5 @@
   ?>
 </div>
 <?php
-closeBox();
 require 'promo.php';
 require 'footer.php';

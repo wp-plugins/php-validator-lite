@@ -66,7 +66,7 @@ if (!empty(EZ::$options['show_defined'])) {
   $success = grep('Success: ', $output);
 }
 else {
-  $success = "Compilate completed!";
+  $success = "Compilation completed!";
 }
 $warning = grep('Warning: ', $output);
 $error = grep('Error: ', $output);
